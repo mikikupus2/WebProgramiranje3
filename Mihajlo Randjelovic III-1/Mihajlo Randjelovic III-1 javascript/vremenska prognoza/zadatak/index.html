@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header height="10%" width="100%">
+      <!--<h4>ШИФРА РАДНОГ ЗАДАТКА: 4ЕИТ–Б1</h4>-->
+      <!--<h5>НАЗИВ РАДНОГ ЗАДАТКА: Фото галерија</h5>-->
+      <center><h1>Turistička agencija "Planinar"</h1></center>
+    </header>
+    <center>
+      <nav width="100%" heigth="7%">
+        <a href="#">Почетна</a>&nbsp;
+        <a href="#">О аутору</a>&nbsp;
+        <a href="#">Упуство</a>&nbsp;
+      </nav>
+    </center>
+    <center><div class="prognoza">
+      <p>
+        <center>Изаберите град:&nbsp;&nbsp;
+        <select id="sel1" onchange="selekt()">
+          <option value="0">Смедерево</option>
+          <option value="1">Београд</option>
+          <option value="2">Нови Сад</option></center>
+        </select>
+      </p>
+      <section height="70%" width="60%">
+        <iframe
+          id="if1"
+          src="https://www.naslovi.net"
+          width="640"
+          height="480"
+          title="Naslovi.net"
+        ></iframe>
+        <iframe
+          id="if2"
+          src="https://www.blic.rs"
+          width="400"
+          height="480"
+          title="Naslovi.net"
+        ></iframe>
+      </section></center>
+    </div>
+    <br>
+    <footer><center>&copy; Петар Петровић</center></footer>
+    <br>
+  </body>
+</html>

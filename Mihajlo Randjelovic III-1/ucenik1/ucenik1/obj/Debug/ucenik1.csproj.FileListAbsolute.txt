@@ -1,0 +1,7 @@
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\bin\Debug\ucenik1.exe.config
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\bin\Debug\ucenik1.exe
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\bin\Debug\ucenik1.pdb
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\obj\Debug\ucenik1.csprojAssemblyReference.cache
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\obj\Debug\ucenik1.csproj.CoreCompileInputs.cache
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\obj\Debug\ucenik1.exe
+D:\Mihajlo Randjelovic III-1\ucenik1\ucenik1\obj\Debug\ucenik1.pdb

@@ -1,0 +1,84 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#bttablica").hide();
+        $("#btgrafik").hide();
+        $("#choose").hide();
+        $("#btunos").click(function () {
+          if (
+            !$("#prezime").val().match("^[a-zA-Z]{3,16}$") ||
+            !$("#ime").val().match("^[a-zA-Z]{3,16}$")
+          )
+            alert("Pogresno ste uneli Ime/Prezime!");
+          else if (
+            Number($("#ocena1").val()) > 5 ||
+            Number($("#ocena1").val()) < 1 ||
+            Number($("#ocena2").val()) > 5 ||
+            Number($("#ocena3").val()) < 1 ||
+            Number($("#ocena1").val()) > 5 ||
+            Number($("#ocena1").val()) < 1
+          )
+            alert("Ocena mora biti broj u opsegu 1-5!");
+          else {
+            unos();
+          }
+        });
+        $("#btkraj").click(function () {
+          $("input").hide(1000);
+          $("#btunos").hide(1000);
+          $("#btkraj").hide(1000);
+          $("br").hide(1000);
+          $("#bttablica").show(1000);
+          $("#btgrafik").show(1000);
+          $("#choose").show(1000);
+        });
+      });
+    </script>
+    <script src="script.js"></script>
+    <style>
+      body {
+        background-color: aquamarine;
+      }
+      .unos {
+        margin: 10%;
+        background-color: lightgrey;
+        border-radius: 20px;
+        width: 30%;
+        padding: 20px;
+      }
+      input {
+        margin: 10px;
+        font-size: xx-large;
+        border-radius: 0px;
+      }
+      button {
+        font-size: xx-large;
+      }
+      #choose {
+        color: rgb(53, 49, 49);
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <center>
+      <div class="unos">
+        <input type="text" id="prezime" placeholder="Prezime" /><br />
+        <input type="text" id="ime" placeholder="Ime" /><br />
+        <input type="text" id="ocena1" placeholder="Ocena1" /><br />
+        <input type="text" id="ocena2" placeholder="Ocena2" /><br />
+        <input type="text" id="ocena3" placeholder="Ocena3" /><br />
+        <h1 id="choose">IZABERITE</h1>
+        <button onclick="" id="btunos">UNOS</button>
+        <button onclick="open_table()" id="bttablica">TABLICA</button>
+        <button onclick="open_chart()" id="btgrafik">GRAFIK</button>
+        <button onclick="" id="btkraj">KRAJ UNOSA</button>
+      </div>
+    </center>
+  </body>
+</html>

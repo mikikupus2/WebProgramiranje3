@@ -1,0 +1,7 @@
+D:\Mihajlo Randjelovic III-1\test\test\obj\Debug\test.csprojAssemblyReference.cache
+D:\Mihajlo Randjelovic III-1\test\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\Mihajlo Randjelovic III-1\test\test\bin\Debug\test.exe.config
+D:\Mihajlo Randjelovic III-1\test\test\bin\Debug\test.exe
+D:\Mihajlo Randjelovic III-1\test\test\bin\Debug\test.pdb
+D:\Mihajlo Randjelovic III-1\test\test\obj\Debug\test.exe
+D:\Mihajlo Randjelovic III-1\test\test\obj\Debug\test.pdb

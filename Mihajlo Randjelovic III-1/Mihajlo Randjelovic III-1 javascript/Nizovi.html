@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      function maxniz() {
+        var imena = new Array();
+        var i, n, d, dmax, imax;
+        n = prompt("Unesi broj imena n=", "0") * 1;
+        for (i = 0; i < n; i++) imena[i] = prompt("imena[" + i + "]=", "ime");
+        dmax = 0;
+        imax = 0;
+        document.write("Uneta su imena:<br>");
+        for (i = 0; i < n; i++) {
+          document.write(imena[i] + "<br>");
+          d = imena[i].length;
+        }
+        imena.sort();
+        document.write("Sortirana imena (rastuci):<br>");
+        for (i = 0; i < n; i++) document.write(imena[i] + "<br>");
+        imena.reverse();
+        document.write("Sortirana imena(opadajuci):<br>");
+        for (i = 0; i < n; i++) document.write(imena[i] + "<br>");
+      }
+      function unesi() {
+        var broj_ucenika = prompt("Unesite broj ucenika:");
+        var niz_ucenika = [];
+        var niz_ocena = [];
+        for (let i = 0; i < broj_ucenika; i++) {
+          let ucenik = prompt("Unesi ime i prezime:");
+          let ucenik_ocena = prompt("Unesi ocenu:");
+        }
+        niz_ucenika.push(ucenik);
+        niz_ocena.push(ucenik_ocena);
+      }
+      function ime_sort() {
+        niz_ucenika.sort();
+        for (let i = 0; i < broj_ucenika; i++)
+          document.write(niz_ucenika[i] + " " + niz_ocena[i] + "<br>");
+      }
+      function ocena_sort() {
+        niz_ocena.sort();
+        for (let i = 0; i < broj_ucenika; i++)
+          document.write(niz_ocena[i] + niz_ucenika[i] + "<br>");
+      }
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!--<body onload="maxniz()">-->
+    <input type="button" onclick="unesi()" value="Unesi" />
+    <input type="button" onclick="ime_sort()" value="Sortiraj po imenima" />
+    <input type="button" onclick="ocena_sort()" value="Sortiraj po ocenama" />
+  </body>
+</html>

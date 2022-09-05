@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      class Ucenik {
+        constructor(ime, prezime, prosek) {
+          this.ime = ime;
+          this.prezime = prezime;
+          this.prosek = prosek;
+        }
+        IzracunajUspeh() {
+          if (this.prosek >= 4.5) this.uspeh = "Odlican";
+          else if (this.prosek >= 3.5) this.uspeh = "Vrlo dobar";
+          else if (this.prosek >= 2.5) this.uspeh = "Dobar";
+          else if (this.prosek >= 1.5) this.uspeh = "Dovoljan";
+          else this.uspeh = "Nedovoljan";
+        }
+      }
+      let xValues = [];
+      let yValues = [];
+      let ucenici = new Array();
+      function Unos() {
+        let ime = document.getElementById("ime").value;
+        let prezime = document.getElementById("prezime").value;
+        let prosek = document.getElementById("prosek").value;
+        let novi_ucenik = new Ucenik(ime, prezime, prosek);
+        novi_ucenik.IzracunajUspeh();
+        ucenici.push(novi_ucenik);
+        xValues.push(novi_ucenik.ime + " " + novi_ucenik.prezime);
+        yValues.push(novi_ucenik.prosek);
+        document.getElementById("ime").value = "";
+        document.getElementById("prezime").value = "";
+        document.getElementById("prosek").value = "";
+      }
+      function Kraj() {
+        /*document.write(
+          "<table id = 'tabela' border = '1px solid black;'></table>"
+        );
+        let tabela = document.getElementById("tabela");
+        let red = tabela.insertRow();
+        red.innerHTML +=
+          "<th>" +
+          "Ime" +
+          "</th>" +
+          "<th>" +
+          "Prezime" +
+          "</th>" +
+          "<th>" +
+          "Prosek" +
+          "</th>" +
+          "<th>" +
+          "Uspeh" +
+          "</th>";*/
+        Prikaz();
+      }
+      function Prikaz() {
+        localStorage.setItem("xValues", JSON.stringify(xValues));
+        localStorage.setItem("yValues", JSON.stringify(yValues));
+        window.open("klase2.html");
+        /*let tabela = document.getElementById("tabela");
+        for (let i = 0; i < ucenici.length; i++) {
+          tabela.innerHTML +=
+            "<tr>" +
+            "<td>" +
+            ucenici[i].ime +
+            "</td>" +
+            "<td>" +
+            ucenici[i].prezime +
+            "</td>" +
+            "<td>" +
+            ucenici[i].prosek +
+            "</td>" +
+            "<td>" +
+            ucenici[i].uspeh +
+            "</td>" +
+            "</tr>";
+          let row = tabela.insertRow();
+                let ime = red.insertCell();
+                let prezime = red.insertCell();
+                let prosek = red.insertCell();
+                let uspeh = red.insertCell();
+                ime.innerHTML = niz[i].ime;
+                prezime.innerHTML = niz[i].prezime;
+                prosek.innerHTML = niz[i].prosek;
+                uspeh.innerHTML = niz[i].uspeh;*/
+      }
+      function Sortiraj() {
+        ucenici.sort((a, b) => a.prosek - b.prosek);
+      }
+      const sortiraj = (a, b) => {
+        a.prosek - b.prosek;
+      };
+    </script>
+    <title>Document</title>
+  </head>
+  <body>
+    <p>Ime ucenika: <input type="text" id="ime" /></p>
+    <p>Prezime ucenika: <input type="text" id="prezime" /></p>
+    <p>Prosek: <input type="text" id="prosek" /></p>
+    <p>
+      <button onclick="Unos()">UNOS</button
+      ><button onclick="Sortiraj()">Sort</button
+      ><button onclick="Kraj()">KRAJ</button>
+    </p>
+    <canvas id="myChart" style="width: 100%; max-width: 700px"></canvas>
+  </body>
+</html>

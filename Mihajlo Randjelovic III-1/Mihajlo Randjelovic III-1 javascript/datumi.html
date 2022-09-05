@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var slika = 1
+        
+        var nizslika = Array();
+        var timeout;
+        var timeout2;
+        var tensectimer
+        var vreme = 9;
+        function start()
+        {
+            for(let i = 1;i<5;i++)
+                nizslika.push("<center><img src='slike/slika" + i + ".png' width=400 height=400/></center>")
+            slajdovanje(slika)
+            tensectimer = setTimeout(stoptimer,10000)
+            console.log(tensectimer.toString())
+        }
+        function slajdovanje(slika)
+        {
+            switch(slika)
+            {
+                case 1 : document.getElementById("slide").innerHTML = nizslika[slika-1];
+                case 2 : document.getElementById("slide").innerHTML = nizslika[slika-1];
+                case 3 : document.getElementById("slide").innerHTML = nizslika[slika-1];
+                case 4 : document.getElementById("slide").innerHTML = nizslika[slika-1];
+            }
+            if (slika >= 4)
+                slika = 1;
+            else
+                slika++;
+            timeout = setTimeout(slajdovanje,1000,slika);
+            timeout2 = setTimeout(timeleft,900)
+        }
+        function stoptimer()
+        {
+            clearTimeout(timeout)
+            clearTimeout(timeout2)
+        }
+        function timeleft()
+        {
+            document.getElementById("timer").innerHTML = vreme--;
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body onload="start()">
+    <div id ="slide" src=""></div>   
+    <center><p id ="timer" ></p></center>
+</body>
+</html>

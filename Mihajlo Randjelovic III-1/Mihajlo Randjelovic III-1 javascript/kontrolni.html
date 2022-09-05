@@ -1,0 +1,156 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script>
+			let pozicijateksta = 0;
+			let pozicijateksta2 = 0;
+			let date = new Date();
+			let datum = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " ";
+			let tekst = datum;
+			let slike = [
+				"slike/slika1.png",
+				"slike/slika2.png",
+				"slike/slika3.png",
+				"slike/slika4.png",
+			];
+			let trenutnaslika = 0;
+			let paused = false;
+			let slide = 0;
+			function start()
+			{
+				document.getElementById("datum").innerHTML = datum;
+				vreme();
+				setInterval(vreme,60000)
+				slideshow();
+				slide=setInterval(slideshow,1000);
+			}
+			function skrolujdatum() {
+				pozicijateksta = (pozicijateksta + 1) % datum.length;
+				let a = datum.split("");
+				for (let i = 0; i < pozicijateksta; i++) {
+					a.shift();
+					a.push(datum[i]);
+				}
+				document.getElementById("datum").innerHTML = a.join("");
+			}
+			function skrolujimeslike(n){
+				document.getElementById("vreme").innerHTML = n
+			}
+			function vreme()
+			{
+				let sati = date.getHours();
+				let minuti = date.getMinutes();
+				document.getElementById("tacnovreme").innerHTML =  sati + ":" + minuti;
+			}
+
+			function slideshow() {
+				if (!paused) {
+					if(trenutnaslika <= 0)
+						trenutnaslika = 3;
+					else
+						trenutnaslika--;
+					document.getElementById("glavna").style.backgroundImage =
+						"url('" + slike[trenutnaslika] + "')";
+					document.getElementById("link").href = slike[trenutnaslika]
+					document.getElementById("ime_slike").innerHTML = slike[trenutnaslika].substring(6)
+				}
+			}
+			function playslideshow() {
+				paused = false;
+			}
+			function pauseslideshow(n) {
+				paused = true;
+				trenutnaslika = n;
+				document.getElementById("glavna").style.backgroundImage =
+					"url('" + slike[trenutnaslika] + "')";
+				document.getElementById("link").href = slike[trenutnaslika]
+				document.getElementById("ime_slike").innerHTML = slike[trenutnaslika].substring(6)
+
+			}
+		</script>
+		<style>
+			body {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+			}
+			.glavna {
+				background-image: url("slika1.png");
+				width: 400px;
+				height: 400px;
+				background-size: cover;
+				background-origin: content-box;
+			}
+			.mala {
+				width: 80px;
+				height: 80px;
+				background-color: black;
+				display: inline-block;
+				margin-top: 30px;
+				margin-left: 1px;
+				margin-right: 21px;
+				background-size: cover;
+			}
+			#slika1 {
+				background-image: url("slike/slika1.png");
+			}
+			#slika2 {
+				background-image: url("slike/slika2.png");
+			}
+			#slika3 {
+				background-image: url("slike/slika3.png");
+			}
+			#slika4 {
+				background-image: url("slike/slika4.png");
+			}
+			.vreme1{
+				width: 100%;
+			}
+			.vreme2{
+				float:left;
+			}
+			.vreme3{
+				float:right;
+			}
+		</style>
+	</head>
+	<body onload="start();setInterval(skrolujdatum,2000);">
+		<center>
+		<div class="vreme1"><div id="datum" class="vreme2">dan/mesec/godina</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<div id="tacnovreme" class="vreme3">hh:mm</div></div></center>
+		<div>
+			<a id="link" href="#"><div class="glavna" id="glavna"></div></a>
+			<center><p id="ime_slike">Ime slike</p></center>
+			<div
+				class="mala"
+				id="slika1"
+				onmouseover="pauseslideshow(0)"
+				onmouseout="playslideshow()"
+			></div>
+
+			<div
+				class="mala"
+				id="slika2"
+				onmouseover="pauseslideshow(1)"
+				onmouseout="playslideshow()"
+			></div>
+			<div
+				class="mala"
+				id="slika3"
+				onmouseover="pauseslideshow(2)"
+				onmouseout="playslideshow()"
+			></div>
+			<div
+				class="mala"
+				id="slika4"
+				onmouseover="pauseslideshow(3)"
+				onmouseout="playslideshow()"
+			></div>
+		</div>
+	</body>
+</html>
